@@ -1,0 +1,21 @@
+<%- | String        $interface,
+      Integer       $advLinkMTU,
+      Integer       $advPreferredLifetime,
+      Integer       $advValidLifetime,
+      Array[String] $subnet6,
+      Array[String] $dns6,
+| -%>
+interface <%= $interface %> {
+  AdvSendAdvert on;
+  AdvLinkMTU $advLinkMTU;
+<% $dns6.each | $value | { -%>
+  RDNSS <%= $value %> {};
+<% } -%>
+<% $subnet6.each | $value | { -%>
+  prefix <%= ip_network($value, 0) %> {
+    AdvPreferredLifetime <%= $advPreferredLifetime %>;
+    AdvValidLifetime <%= $advValidLifetime %>;
+  };
+<% } -%>
+};
+
