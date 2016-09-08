@@ -7,7 +7,7 @@
 | -%>
 interface <%= $interface %> {
   AdvSendAdvert on;
-  AdvLinkMTU $advLinkMTU;
+  AdvLinkMTU <%= $advLinkMTU %>;
 <% $dns6.each | $value | { -%>
   RDNSS <%= $value %> {};
 <% } -%>
