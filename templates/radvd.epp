@@ -8,7 +8,7 @@
 | -%>
 interface <%= $interface %> {
   AdvSendAdvert on;
-  MaxRtrAdvInterval <%= $maxTrtAdvInterval %>;
+  MaxRtrAdvInterval <%= $maxRtrAdvInterval %>;
   AdvLinkMTU <%= $advLinkMTU %>;
 <% $dns6.each | $value | { -%>
   RDNSS <%= $value %> {};
