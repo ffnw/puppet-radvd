@@ -11,6 +11,7 @@ define radvd::interface (
     content => epp('radvd/radvd.epp', {
       interface            => $interface,
       advLinkMTU           => $radvd::advLinkMTU,
+      maxRtrAdvInterval    => $radvd::maxRtrAdvInterval,
       advPreferredLifetime => $radvd::advPreferredLifetime,
       advValidLifetime     => $radvd::advValidLifetime,
       subnet6              => $subnet6,

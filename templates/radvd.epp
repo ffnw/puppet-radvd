@@ -1,5 +1,6 @@
 <%- | String        $interface,
       Integer       $advLinkMTU,
+      Integer       $maxRtrAdvInterval,
       Integer       $advPreferredLifetime,
       Integer       $advValidLifetime,
       Array[String] $subnet6,
@@ -7,6 +8,7 @@
 | -%>
 interface <%= $interface %> {
   AdvSendAdvert on;
+  MaxRtrAdvInterval <%= $maxTrtAdvInterval %>;
   AdvLinkMTU <%= $advLinkMTU %>;
 <% $dns6.each | $value | { -%>
   RDNSS <%= $value %> {};
