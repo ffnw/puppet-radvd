@@ -6,10 +6,12 @@ class radvd (
 ) inherits radvd::params {
 
   class { 'radvd::install': } ->
-  class { 'radvd::config': }
+  class { 'radvd::config': } ~>
+  class { 'radvd::service': }
 
   contain radvd::install
   contain radvd::config
+  contain radvd::service
 
   create_resources('radvd::interface', hiera('radvd::interface', {}))
 
